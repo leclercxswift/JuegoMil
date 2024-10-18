@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión / Registro</title>
+    <link rel="stylesheet" href="./styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="tab-container">
+                <button id="login-tab" class="tab active">Iniciar Sesión</button>
+                <button id="register-tab" class="tab">Registrarse</button>
+                <button id="forgot-tab" class="tab">Recuperar Contraseña</button>
+            </div>
+            <div class="form-container">
+                <!-- Formulario de Iniciar Sesión -->
+                <form id="login-form" class="form active">
+                    <h2>Iniciar Sesión</h2>
+                    <input id="login-email" type="email" placeholder="Correo Electrónico" required>
+                    <input id="login-password" type="password" placeholder="Contraseña" required>
+                    <div class="options">
+                        <button type="button" id="forgot-password-btn" class="btn-link">¿Olvidaste tu contraseña?</button>
+                    </div>
+                    <button id="login-btn" type="submit" class="btn">Entrar</button>
+                </form>
+
+                <!-- Formulario de Registro -->
+                <form id="register-form" class="form">
+                    <h2>Registrarse</h2>
+                    <input id="register-name" type="text" placeholder="Nombre" required>
+                    <input id="register-email" type="email" placeholder="Correo Electrónico" required>
+                    <input id="register-password" type="password" placeholder="Contraseña" required>
+                    <button id="register-btn" type="submit" class="btn">Registrarse</button>
+                </form>
+
+                <!-- Formulario de Recuperación de Contraseña -->
+                <form id="forgot-form" class="form">
+                    <h2>Recuperar Contraseña</h2>
+                    <input type="email" placeholder="Correo Electrónico" required>
+                    <button type="submit" class="btn">Enviar Enlace</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/login.js"></script>
+</body>
+</html>

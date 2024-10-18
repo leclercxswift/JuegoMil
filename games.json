@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "FIFA 24",
+        "genre": "Sports",
+        "price": 59.99,
+        "popularity": 95,
+        "image": "fifa24.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Cyberpunk 2077",
+        "genre": "RPG",
+        "price": 49.99,
+        "popularity": 90,
+        "image": "cyberpunk.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Minecraft",
+        "genre": "Sandbox",
+        "price": 29.99,
+        "popularity": 98,
+        "image": "minecraft.jpg"
+    }
+]
