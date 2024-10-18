@@ -2,7 +2,29 @@
 *{
     box-sizing: border-box;
 }
+header {
+    background-color: #000000; 
+    z-index: 1000;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
 
+/* Cambia el color de los enlaces del header y aumenta su tamaño */
+.navbar-nav .nav-link {
+    color: #ffffff; /* Blanco para los enlaces */
+    font-size: 1.25rem; /* Aumenta el tamaño del texto */
+    padding: 10px 15px; /* Añade espacio alrededor del texto */
+    text-align: center; /* Centra el texto dentro de cada opción */
+}
+
+/* Estilo para hover */
+.navbar-nav .nav-link:hover {
+    color: #3bf816; /* Un color resaltado en hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Añade un fondo sutil al pasar el mouse */
+}
 body{
     color: rgb(255, 255, 255);
 }
@@ -12,9 +34,6 @@ body{
     font-weight: 400;
     font-style: normal;
   }
-.navbar{
-    background-color: rgb(0, 0, 0);
-}
 
 #presentation{
     background: url(/assets/re2r.jpg) no-repeat;
