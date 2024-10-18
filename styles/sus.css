@@ -12,18 +12,17 @@ header {
     width: 100%; 
 }
 
-/* Cambia el color de los enlaces del header y aumenta su tamaño */
 .navbar-nav .nav-link {
-    color: #ffffff; /* Blanco para los enlaces */
-    font-size: 1.25rem; /* Aumenta el tamaño del texto */
-    padding: 10px 15px; /* Añade espacio alrededor del texto */
-    text-align: center; /* Centra el texto dentro de cada opción */
+    color: #ffffff; 
+    font-size: 1.25rem; 
+    padding: 10px 15px; 
+    text-align: center; 
 }
 
-/* Estilo para hover */
+
 .navbar-nav .nav-link:hover {
-    color: #3bf816; /* Un color resaltado en hover */
-    background-color: rgba(255, 255, 255, 0.1); /* Añade un fondo sutil al pasar el mouse */
+    color: #3bf816; 
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 body{
     color: rgb(255, 255, 255);
