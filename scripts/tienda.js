@@ -8,48 +8,56 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             gamesArray = data;
-            filteredGames = data;
+            filteredGames = data; // Inicialmente mostrar todos los juegos
             displayGames(filteredGames);
         });
 });
 
-// Filtrar juegos según las selecciones del usuario
-document.getElementById('filter-genre').addEventListener('change', filterGames);
-document.getElementById('filter-price').addEventListener('change', filterGames);
-document.getElementById('filter-popularity').addEventListener('change', filterGames);
-
-function filterGames() {
-    const genre = document.getElementById('filter-genre').value;
-    const price = document.getElementById('filter-price').value;
-    const popularity = document.getElementById('filter-popularity').value;
-
-    filteredGames = gamesArray.filter(game => {
-        let isGenreMatch = genre === 'all' || game.genre === genre;
-        let isPriceMatch = price === 'all' || (price === 'low-high' ? game.price <= 40 : game.price > 40);
-        let isPopularityMatch = popularity === 'all' || 
-            (popularity === 'most-popular' && game.popularity >= 80) || 
-            (popularity === 'least-popular' && game.popularity < 80);
-
-        return isGenreMatch && isPriceMatch && isPopularityMatch;
+// Filtrar productos según el tipo (juegos, complementos, bundles)
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+        filterGames(filter);
     });
+});
 
+function filterGames(filter) {
+    if (filter === 'all') {
+        filteredGames = gamesArray; // Mostrar todos los juegos
+    } else {
+        filteredGames = gamesArray.filter(game => game.category === filter);
+    }
     displayGames(filteredGames);
 }
-
-// Mostrar los juegos filtrados en la página
+// Mostrar los productos filtrados en la página
 function displayGames(games) {
-    const gamesList = document.getElementById('games-list');
-    gamesList.innerHTML = '';
+    const productList = document.querySelector('.product-list');
+    productList.innerHTML = ''; // Limpiar la lista de productos
 
     games.forEach(game => {
         const gameCard = `
-            <div class="game-card" data-genre="${game.genre}" data-price="${game.price}" data-popularity="${game.popularity}">
-                <img src="${game.image}" alt="${game.name}">
-                <h2>${game.name}</h2>
-                <p>Precio: $${game.price}</p>
-                <button class="btn">Comprar</button>
+            <div class="col-md-4 product-item ${game.category}">
+                <div class="card h-100">
+                    <img src="/assets/${game.image}" class="card-img-top" alt="${game.title}">
+                    <div class="card-body d-flex flex-column justify-content-between ">
+                        <h5 class="card-title">${game.title}</h5>
+                        <p class="card-text">${game.description}</p>
+                        <button class="btn btn-success buy-btn" data-id="${game.id}">Comprar</button>
+                    </div>
+                </div>
             </div>
         `;
-        gamesList.innerHTML += gameCard;
+        productList.innerHTML += gameCard;
+    });
+
+    // Agregar evento a los botones de compra
+    document.querySelectorAll('.buy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const gameId = this.getAttribute('data-id');
+            // Almacenar el ID del juego en el LocalStorage
+            localStorage.setItem('selectedGameId', gameId);
+            // Redirigir a la página de compra
+            window.location.href = 'compra.html';
+        });
     });
 }
