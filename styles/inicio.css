@@ -36,7 +36,7 @@ body{
   }
 
 #presentation{
-    background: url(/assets/juego.jpg) no-repeat;
+    background: url(../assets/juego.jpg) no-repeat;
     background-position:  center;
     background-size: cover;
     height: 100vh;
